@@ -1,17 +1,31 @@
 package org.example;
 
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Factor factorer = new Factor();
+        int a = 36;
+        int b = 4;
+        System.out.println(factorer.gcd(a,b));
+        System.out.println(factorer.gcdWithFactorization(a,b));
+        System.out.println(factorer.lcm(a,b));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        PrimeFactorization pf = new PrimeFactorization();
+        int n = 56; // Example number
+        List<int[]> factors = pf.primeFactor(n);
+
+        // Print the prime factors
+        System.out.println("Prime factors of " + n + ":");
+        for (int[] factor : factors) {
+            System.out.println("Prime: " + factor[0] + ", Exponent: " + factor[1]);
         }
+        PrimeChecker check = new PrimeChecker();
+        System.out.println(check.isPrime(7));
+
     }
 }
