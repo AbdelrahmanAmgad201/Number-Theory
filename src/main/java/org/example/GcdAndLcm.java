@@ -3,16 +3,30 @@ package org.example;
 import java.util.List;
 
 public class GcdAndLcm {
-    public int gcd(int a, int b) {
-        if (a == 0) {
-            return b; // Our base case
-        } else {
-            return gcd(b % a, a); // Using Euclidean property
+
+    public static class InvalidInputException extends Exception {
+        public InvalidInputException(String message) {
+            super(message);
         }
     }
 
-    public int lcm(int a, int b) {
-        return (a * b) / gcd(a, b); // Using the property of gcd and lcm
+    public int gcd(int a, int b) throws InvalidInputException {
+        if (a == 0 && b == 0) {
+            throw new InvalidInputException("GCD of 0 and 0 is undefined.");
+        }
+        if (a == 0) {
+            return b; // Base case: gcd(0, b) = b
+        }else {
+            return gcd(b % a, a); // Recursive call using Euclidean algorithm
+        }
+    }
+
+
+    public int lcm(int a, int b) throws InvalidInputException {
+        if (a == 0 && b == 0) {
+            throw new InvalidInputException("LCM of 0 and 0 is undefined.");
+        }
+        return (a * b) / gcd(a, b); // Using the relationship between GCD and LCM
     }
 
     public int gcdWithFactorization(int a, int b) {
