@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        Factor factorer = new Factor();
+        GcdAndLcm factorer = new GcdAndLcm();
         int a = 36;
         int b = 4;
         System.out.println(factorer.gcd(a,b));
@@ -16,10 +16,9 @@ public class Main {
         System.out.println(factorer.lcm(a,b));
 
         PrimeFactorization pf = new PrimeFactorization();
-        int n = 56; // Example number
+        int n = 56;
         List<int[]> factors = pf.primeFactor(n);
 
-        // Print the prime factors
         System.out.println("Prime factors of " + n + ":");
         for (int[] factor : factors) {
             System.out.println("Prime: " + factor[0] + ", Exponent: " + factor[1]);
