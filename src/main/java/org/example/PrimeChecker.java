@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PrimeChecker {
     public boolean isPrime(int num) {
-        // Calculate the sieve for numbers up to 'num'
+        // Calculate the sieve for numbers up to num
         if(num <= 1){
             return false;
         }

@@ -20,7 +20,8 @@ public class PrimeFactorization {
             }
         }
 
-        // If there's any prime factor left it's a prime number
+        // If there is any prime factor left it's a prime number
+        // If the number left is negative one its disregarded
         if (n > 1) {
             primes.add(new int[]{n, 1});
         }

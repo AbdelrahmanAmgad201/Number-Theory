@@ -53,6 +53,6 @@ public class Main {
     }
 
     private static int validateIntegerInput(String input) throws NumberFormatException {
-        return Integer.parseInt(input); // Throws NumberFormatException if the input is not a valid integer
+        return Integer.parseInt(input); // Throws Exeption if the input is not a valid integer
     }
 }
