@@ -66,4 +66,45 @@ public class GcdAndLcm {
         }
         return gcdResult;
     }
+    public int lcmWithFactorization(int a, int b) {
+        // Factorize a and b to their prime factors
+        PrimeFactorization pf = new PrimeFactorization();
+        List<int[]> factorsOfA = pf.primeFactor(a);
+        List<int[]> factorsOfB = pf.primeFactor(b);
+        int lcmResult = 1; // To store our result
+        if (a == 0 || b == 0) {
+            return 0; // LCM of 0 and any number is 0
+        }
+
+        // Pointers to compare with
+        int pointerA = 0;
+        int pointerB = 0;
+
+        // Compare prime factors of both numbers
+        while (pointerA < factorsOfA.size() || pointerB < factorsOfB.size()) {
+            if (pointerA < factorsOfA.size() && (pointerB >= factorsOfB.size() || factorsOfA.get(pointerA)[0] < factorsOfB.get(pointerB)[0])) {
+                int primeA = factorsOfA.get(pointerA)[0];
+                int exponentA = factorsOfA.get(pointerA)[1];
+                lcmResult *= (int) Math.pow(primeA, exponentA);
+                pointerA++;
+            } else if (pointerA >= factorsOfA.size() || factorsOfB.get(pointerB)[0] < factorsOfA.get(pointerA)[0]) {
+                int primeB = factorsOfB.get(pointerB)[0];
+                int exponentB = factorsOfB.get(pointerB)[1];
+                lcmResult *= (int) Math.pow(primeB, exponentB);
+                pointerB++;
+            } else {
+                int prime = factorsOfA.get(pointerA)[0];
+                int maxExponent = Math.max(factorsOfA.get(pointerA)[1], factorsOfB.get(pointerB)[1]);
+                lcmResult *= (int) Math.pow(prime, maxExponent);
+                pointerA++;
+                pointerB++;
+            }
+        }
+        if (lcmResult < 0) {
+            throw new ArithmeticException("Overflow occurred while calculating LCM");
+        }
+
+        return lcmResult;
+    }
+
 }

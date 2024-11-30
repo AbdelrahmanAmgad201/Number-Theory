@@ -28,6 +28,7 @@ public class Main {
             System.out.println("GCD: " + factorer.gcd(a, b));
             System.out.println("GCD Using Factorization: " + factorer.gcdWithFactorization(a, b));
             System.out.println("LCM: " + factorer.lcm(a, b));
+            System.out.println("LCM Using Factorization: " + factorer.lcmWithFactorization(a, b));
         } catch (GcdAndLcm.InvalidInputException e) {
             System.err.println(e.getMessage());
             System.exit(0);
