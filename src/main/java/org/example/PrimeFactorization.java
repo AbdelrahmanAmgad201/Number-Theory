@@ -6,6 +6,8 @@ import java.util.List;
 public class PrimeFactorization {
     public List<int[]> primeFactor(int n) {
         // return : list of pairs of prime numbers and frequency of this number
+        // Take the absolute value of n
+        n = Math.abs(n);
         List<int[]> primes = new ArrayList<>();
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {

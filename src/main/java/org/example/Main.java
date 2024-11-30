@@ -35,19 +35,20 @@ public class Main {
 
         PrimeFactorization pf = new PrimeFactorization();
         List<int[]> factorsOfA = pf.primeFactor(a);
-        List<int[]> factorsOfB = pf.primeFactor(a);
+        List<int[]> factorsOfB = pf.primeFactor(b);
 
         System.out.println("Prime factors of " + a + ":");
         for (int[] factor : factorsOfA) {
             System.out.println("Prime: " + factor[0] + ", Exponent: " + factor[1]);
         }
+
         System.out.println("Prime factors of " + b + ":");
         for (int[] factor : factorsOfB) {
             System.out.println("Prime: " + factor[0] + ", Exponent: " + factor[1]);
         }
         PrimeChecker check = new PrimeChecker();
-        System.out.println("is" + a + "prime: " + check.isPrime(a));
-        System.out.println("is" + b + "prime: " + check.isPrime(b));
+        System.out.println("is " + a + " prime: " + check.isPrime(a));
+        System.out.println("is " + b + " prime: " + check.isPrime(b));
 
     }
 
